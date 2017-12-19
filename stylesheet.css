@@ -43,3 +43,8 @@ time, mark, audio, video {
 .navbar li a:hover {
     background-color: #111;
 }
+
+.navbar a.active {
+    background-color: #4CAF50;
+    color: white;
+}
