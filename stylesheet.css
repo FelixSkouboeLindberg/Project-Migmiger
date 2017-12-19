@@ -23,8 +23,13 @@ time, mark, audio, video {
 	height: 50px;
 	background-color: #808080;
 }
+
 .header p {
 	font-size: 35px;
+}
+
+.loginspot {
+	float: left;
 }
 
 /* navigationsbar */
