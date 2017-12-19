@@ -30,10 +30,12 @@ time, mark, audio, video {
 
 .logo {
 	float: left;
+	padding: 5px;
 }
 
 .loginspot {
 	float: right;
+	padding: 5px;
 }
 
 /* navigationsbar */
