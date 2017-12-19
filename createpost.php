@@ -47,14 +47,29 @@
 			if (move_uploaded_file($_FILES["billede"]["tmp_name"], "uploads/" . $newfilename)) {
 				echo "The file ". basename( $_FILES["billede"]["name"]). " has been uploaded.";
 				$UN = $_SESSION["username"];
-				$sql = "SELECT * FROM `users` WHERE `id` = '$UN'";
-	 
-				$result2 = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-				$count2 = mysqli_num_rows($result2);
-				//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
-				if ($count2 == 1){
-					$_SESSION["id"] = $
+				if ($stmt = $conn->prepare("SELECT id FROM brugere WHERE (username=?)"))
+				{
+					$stmt->bind_param("s", $UN);
+					$stmt->execute();
+					$stmt->bind_result($_SESSION['id']);
+					$stmt->fetch();
+					$stmt->close();
+					
+					$id = $_SESSION['id'];
+					
+					$sql = "INSERT INTO posts (title, billede, bruger_id) VALUES ('$title', '$newfilename', '$id')";
+					if ($conn->query($sql) === TRUE) {
+						echo "User is successfully created";
+					} else {
+						echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+					//header("Location: Velkommen.php");
 				}
+				else{
+					echo "Could not prepare sql statement";
+				}
+				
+				
 			} else {
 				echo "Sorry, there was an error uploading your file.";
 			}
