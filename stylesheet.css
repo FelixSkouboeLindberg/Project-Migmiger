@@ -44,7 +44,7 @@ time, mark, audio, video {
     background-color: #111;
 }
 
-.navbar a.active {
+.navbar li a.active {
     background-color: #4CAF50;
     color: white;
 }
