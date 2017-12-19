@@ -19,7 +19,7 @@ require('connect_mysql.php');
 				$username = $_SESSION['username'];
 				echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
 			} else {
-				echo "<a href='login.php'>Login</a>";
+				echo "<a href='loginpage.php'>Login</a>";
 			}
 			?>
 		</div>
