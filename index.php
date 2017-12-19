@@ -6,6 +6,7 @@
 		<div class="navbar">
 			<ul>
 				<li><a class="active" href="index.php">Frontpage</a></li>
+				<li><a href="login.php">Login</a></li>
 			</ul>
 		</div>
 	</body>
