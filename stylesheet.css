@@ -19,6 +19,14 @@ time, mark, audio, video {
     background:transparent;
 }
 
+.header {
+	height: 50px;
+	background-color: #808080;
+}
+.header p {
+	font-size: 35px;
+}
+
 /* navigationsbar */
 .navbar ul {
     list-style-type: none;

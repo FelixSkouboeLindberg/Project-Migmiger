@@ -4,9 +4,13 @@ require('connect_mysql.php');
 ?>
 <html>
 	<head>
+		<title>GemmeGag<title>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head>
 	<body>
+		<div class="header">
+			<p>GemmeGag</p>
+		</div>
 		<div class="navbar">
 			<ul>
 				<li><a class="active" href="index.php">Frontpage</a></li>
