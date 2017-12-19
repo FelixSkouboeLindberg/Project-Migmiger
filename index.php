@@ -4,7 +4,7 @@ require('connect_mysql.php');
 ?>
 <html>
 	<head>
-		<title>GemmeGag<title>
+		<title>GemmeGag</title>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head>
 	<body>
