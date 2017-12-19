@@ -28,8 +28,12 @@ time, mark, audio, video {
 	font-size: 35px;
 }
 
-.loginspot {
+.logo {
 	float: left;
+}
+
+.loginspot {
+	float: right;
 }
 
 /* navigationsbar */
