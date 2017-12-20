@@ -47,7 +47,7 @@ require('connect_mysql.php');
 			$post .= <<<EOT
 				<li class="post">
 				<form action="showpost.php" method="POST">
-				<input type="submit" name="title" value="<div class="post_title"><h1>{$obj->title}</h1></div>">
+				<input type="submit" name="title" value="<div class='post_title'><h1>{$obj->title}</h1></div>">
 				<div class="post_img"><img src="uploads/{$obj->billede}"></div>
 				<div class="post_votes">{$obj->votes}</div>
 				<div class="comment_button"></div>
