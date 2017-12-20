@@ -47,10 +47,12 @@ require('connect_mysql.php');
 			$post .= <<<EOT
 				<li class="post">
 				<form action="showpost.php" method="POST">
-				<input type="" <div class='post_title'><h1>{$obj->title}</h1></div>
+				<input type="hidden" name="id" value="{$obj->id}">
+				<div class='post_title'><h1>{$obj->title}</h1></div>
 				<div class="post_img"><img src="uploads/{$obj->billede}"></div>
 				<div class="post_votes">{$obj->votes}</div>
-				<div class="comment_button"></div>
+				<div class="comment_button"><input type="submit" value="Comments"></div>
+				
 				</form>
 				</li>
 EOT;
