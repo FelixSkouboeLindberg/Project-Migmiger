@@ -19,6 +19,17 @@ time, mark, audio, video {
     background:transparent;
 }
 
+html {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+body {
+	background-color: #999;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
 .header {
 	height: 50px;
 	background-color: #808080;
@@ -68,25 +79,30 @@ time, mark, audio, video {
     color: white;
 }
 
+
 .posts {
-	background-color: #808080;
+	background-color: #777;
 	width: 80%;
-	text-align: center;
+	text-align: left;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 0px;
 	text-decoration: none;
 	list-style-type: none;
+	padding-top: 10px;
+	padding-bottom: 10%;
+	
 }
 .post {
 	margin-bottom: 20px;
-	border-style: solid;
-	border-width: 1px;
-	max-width: 40%;
+	background-color: #111;
+	color: #fff;
+	max-width: 42%;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-
-	
+	padding-left: 1%;
+	padding-right: 1%;
 }
 
 .VoteContainer {
@@ -104,6 +120,9 @@ time, mark, audio, video {
 }
 .post_votes {
 	float:left;
+	font-size: 25px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .comment_button {
@@ -113,8 +132,8 @@ time, mark, audio, video {
 .votes_upDown input {
 	background: url(upvote.png);
 	background-size: 100% 100%;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	margin-left:auto;
 	float:left;
 }

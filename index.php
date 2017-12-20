@@ -15,7 +15,7 @@ require('connect_mysql.php');
 			
 			<div class="loginspot">
 				<?php
-				if(isset($_SESSION['username']))
+				if(isset($_SESSION['id']))
 				{
 					$username = $_SESSION['username'];
 					echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
@@ -69,6 +69,8 @@ EOT;
 			$post .= '</ul>';
 			echo $post;
 			}
+			
+			
 			?>
 		</div>
 	</body>
