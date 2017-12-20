@@ -56,6 +56,7 @@ require('connect_mysql.php');
 				
 				</form>
 				<form action="vote.php" method="POST">
+					<input type="hidden" name="id" value="{$obj->id}">
 					<div class="votes_upDown"><input type="submit" name="1"></div>
 					<div class="post_votes">{$obj->votes}</div>
 					<div class="votes_upDown"><input type="submit" name="0"></div>
