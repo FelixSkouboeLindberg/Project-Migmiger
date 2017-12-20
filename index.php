@@ -38,7 +38,7 @@ require('connect_mysql.php');
 			
 		<div class="content">
 			<?php
-			$results = $mysqli->query("SELECT * FROM posts ORDER BY id DESC");
+			$results = $conn->query("SELECT * FROM posts ORDER BY id DESC");
 			if($results){ 
 			$post = '<ul class="posts">';
 			//fetch results set as object and output HTML
