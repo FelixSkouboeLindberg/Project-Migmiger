@@ -32,6 +32,31 @@ require('connect_mysql.php');
 			<ul>
 				<li><a class="active" href="index.php">Frontpage</a></li>
 			</ul>
+		</div>	
+			
+			
+			
+		<div class="content">
+			<?php
+			$results = $mysqli->query("SELECT * FROM posts ORDER BY id DESC");
+			if($results){ 
+			$post = '<ul class="posts">';
+			//fetch results set as object and output HTML
+			while($obj = $results->fetch_object())
+			{
+			$post .= <<<EOT
+				<li class="post">
+				<div class="post_title"><h1>{$obj->title}</h1></div>
+				<div class="post_img"><img src="{$obj->billede}"></div>
+				<div class="post_votes">{$obj->votes}</div>
+				<div class="comment_button">
+				</li>
+EOT;
+			}
+			$post .= '</ul>';
+			echo $post;
+			}
+			?>
 		</div>
 	</body>
 </html>
