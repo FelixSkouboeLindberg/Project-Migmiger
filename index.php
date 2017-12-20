@@ -52,15 +52,17 @@ require('connect_mysql.php');
 				<div class="post_img"><img src="uploads/{$obj->billede}"></div>
 				
 				
-				<div class="comment_button"><input type="submit" value="Comments"></div>
-				
-				</form>
-				<form action="vote.php" method="POST">
-					<input type="hidden" name="id" value="{$obj->id}">
-					<div class="votes_upDown"><input type="submit" name="1"></div>
-					<div class="post_votes">{$obj->votes}</div>
-					<div class="votes_upDown"><input type="submit" name="0"></div>
-				</form>
+					<div class="comment_button"><input type="submit" value="Comments"></div>
+				<div class="VoteContainer">
+					</form>
+					<form action="vote.php" method="POST">
+						
+						<input type="hidden" name="id" value="{$obj->id}">
+						<div class="votes_upDown"><input type="submit" name="1" value=""></div>
+						<div class="post_votes">{$obj->votes}</div>
+						<div class="votes_upDown"><input type="submit" name="0" value=""></div>
+					</form>
+				</div>
 				</li>
 EOT;
 			}

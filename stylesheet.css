@@ -84,16 +84,26 @@ time, mark, audio, video {
 	max-width: 40%;
 	margin-left: auto;
 	margin-right: auto;
+	display: block;
+
+	
 }
+
+.VoteContainer {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+
 .post, img {
 	width: 100%;
 }
 .post_title {
-		font-size: 25px;
-		margin-bottom: 5px;
+	font-size: 25px;
+	margin-bottom: 5px;
 }
 .post_votes {
-	float: left;
+	float:left;
 }
 
 .comment_button {
@@ -101,8 +111,11 @@ time, mark, audio, video {
 }
 
 .votes_upDown input {
-	background-image: url("upvote.png");
-	width: 50px;
-	height: 50px;
+	background: url(upvote.png);
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	margin-left:auto;
+	float:left;
 }
 
