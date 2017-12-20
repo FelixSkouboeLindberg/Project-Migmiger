@@ -58,7 +58,7 @@ require('connect_mysql.php');
 				<form action="vote.php" method="POST">
 					<input type="image" src="upvote.png" name="1">
 					<div class="post_votes">{$obj->votes}</div>
-					<input type="image" src="" name="0">
+					<input type="image" src="upvote.png" name="0">
 				</form>
 				</li>
 EOT;
