@@ -15,7 +15,7 @@ if(isset($_POST["1"]))
 		
 		if($stmt = $conn->prepare("UPDATE posts SET votes=? WHERE id=?"))
 		{
-			$stmt->bind_param("i", $id);
+			$stmt->bind_param("ii", $votes, $id);
 			$stmt->execute();
 			$stmt->close();
 			
