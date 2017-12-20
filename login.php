@@ -13,6 +13,7 @@ if (isset($_POST['username']) and isset($_POST['password'])){
 	//3.1.2 If the posted values are equal to the database values, then session will be created for the user.
 	if ($count == 1){
 	$_SESSION['username'] = $username;
+	$_SESSION['id'] = $count['id'];
 	}else{
 	//3.1.3 If the login credentials doesn't match, he will be shown with an error message.
 	$fmsg = "Invalid Login Credentials.";
