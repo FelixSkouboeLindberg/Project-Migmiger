@@ -1,4 +1,5 @@
 <?php
+include("connect_mysql.php");
 if(isset($_POST["1"]))
 {	
 	$id = $_POST["id"];
