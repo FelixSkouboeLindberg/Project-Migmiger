@@ -48,11 +48,16 @@ require('connect_mysql.php');
 				<li class="post">
 				<form action="showpost.php" method="POST">
 				<input type="hidden" name="id" value="{$obj->id}">
-				<div class='post_title'><h1>{$obj->title}</h1></div>
+				<div class='post_title'><h2>{$obj->title}</h2></div>
 				<div class="post_img"><img src="uploads/{$obj->billede}"></div>
+				
 				<div class="post_votes">{$obj->votes}</div>
 				<div class="comment_button"><input type="submit" value="Comments"></div>
 				
+				</form>
+				<form action="vote.php" method="POST">
+					<input type="submit" value="^" name="1">
+					<input type="submit" value="v" name="0">
 				</form>
 				</li>
 EOT;
