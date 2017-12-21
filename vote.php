@@ -7,6 +7,8 @@ if(isset($_SESSION['username']))
 {
 	$postid = $_POST["id"];
 	$brugerid = $_SESSION["id"];
+	$vote1 = 1;
+	$vote2 = -1;
 	
 	$sql = "SELECT vote FROM votes WHERE post_id = '$postid' AND bruger_id = '$brugerid'";
     $result = mysqli_query($conn, $sql);
@@ -43,7 +45,7 @@ if(isset($_SESSION['username']))
 			{
 				if($stmt = $conn->prepare("UPDATE vote FROM votes WHERE post_id=? AND bruger_id=? VALUES (?)"))
 				{
-					$stmt->bind_param("iii", $postid, $brugerid, 1);
+					$stmt->bind_param("iii", $postid, $brugerid, $vote1);
 					$stmt->execute();
 					$stmt->close();
 					$votes = $votes + 2;
@@ -53,14 +55,14 @@ if(isset($_SESSION['username']))
 			}
 		}else{
 			if($stmt = $conn->prepare("INSERT INTO votes (post_id, bruger_id, vote) VALUES (?,?,?)"))
-				{
-					$stmt->bind_param("iii", $postid, $brugerid, 1);
-					$stmt->execute();
-					$stmt->close();
-					$votes = $votes + 1;
-				} else {
-					echo "Could not prepare sql statement 7";
-				}
+			{
+				$stmt->bind_param("iii", $postid, $brugerid, $vote1);
+				$stmt->execute();
+				$stmt->close();
+				$votes = $votes + 1;
+			} else {
+				echo "Could not prepare sql statement 7";
+			}
 		}
 		
 	}
@@ -85,7 +87,7 @@ if(isset($_SESSION['username']))
 			{
 				if($stmt = $conn->prepare("UPDATE vote FROM votes WHERE post_id=? AND bruger_id=? VALUES (?)"))
 				{
-					$stmt->bind_param("iii", $postid, $brugerid, -1);
+					$stmt->bind_param("iii", $postid, $brugerid, $vote2);
 					$stmt->execute();
 					$stmt->close();
 					$votes = $votes - 2;
@@ -96,7 +98,7 @@ if(isset($_SESSION['username']))
 		}else{
 			if($stmt = $conn->prepare("INSERT INTO votes (post_id, bruger_id, vote) VALUES (?,?,?)"))
 				{
-					$stmt->bind_param("iii", $postid, $brugerid, -1);
+					$stmt->bind_param("iii", $postid, $brugerid, $vote2);
 					$stmt->execute();
 					$stmt->close();
 					$votes = $votes - 1;
