@@ -129,8 +129,16 @@ body {
 	float:right;
 }
 
-.votes_upDown input {
+.votes_up input {
 	background: url(upvote.png);
+	background-size: 100% 100%;
+	width: 25px;
+	height: 25px;
+	margin-left:auto;
+	float:left;
+}
+.votes_down input {
+	background: url(downvote.png);
 	background-size: 100% 100%;
 	width: 25px;
 	height: 25px;
