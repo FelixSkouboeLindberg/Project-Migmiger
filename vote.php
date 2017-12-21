@@ -115,8 +115,6 @@ if(isset($_SESSION['username']))
 		$stmt->execute();
 		$stmt->close();
 		
-		header("Location: index.php");
-		
 	} else {
 		echo "Could not prepare sql statement 4";
 	}
