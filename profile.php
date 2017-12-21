@@ -61,9 +61,9 @@ require('connect_mysql.php');
 			
 			if($error == false)
 			{ 
-				$post = '<ul class="posts">';
+				$post = '<ul class="profiles">';
 				$post .= <<<EOT
-				<div class="post">
+				<div class="profile">
 					<li class="profileContainer">
 					<div class='username'><h1>{$username}</h1></div>
 					<div class="profilepic"><img src="ProfilePics/{$billede}"></div>
