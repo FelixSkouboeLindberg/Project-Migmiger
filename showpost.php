@@ -75,5 +75,31 @@ EOT;
 			}
 			?>
 		</div>
+		<div class="comments">
+			<?php 
+                if(isset($_SESSION['id'])) {
+                    echo "<form action='createcomment.php' method='POST'>
+                        <input type='text' name='msgtxt' required>
+                        <input type='submit' value='Post'>
+                    </form>";
+                }
+
+
+                $sql = "SELECT brugere.username, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id ORDER BY comments.id DESC";
+                $result = $conn->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo  $row["username"]. " - " . $row["comment"]. " - ". $row["created"]. "<br>";
+                    }
+                } else {
+                    echo "0 results";
+                }
+
+
+            ?>
+		</div>
+		
 	</body>
 </html>
