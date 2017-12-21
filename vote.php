@@ -8,7 +8,7 @@ if(isset($_SESSION['username']))
 	$postid = $_POST["id"];
 	$brugerid = $_SESSION["id"];
 	
-	sql = "SELECT vote FROM votes WHERE post_id = '$postid' AND bruger_id = '$brugerid'";
+	$sql = "SELECT vote FROM votes WHERE post_id = '$postid' AND bruger_id = '$brugerid'";
     $result = mysqli_query($conn, $sql);
 
 	if($stmt = $conn->prepare("SELECT votes FROM posts WHERE id=?"))
