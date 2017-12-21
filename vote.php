@@ -26,7 +26,7 @@ if(isset($_SESSION['username']))
 	{
 		if (mysqli_num_rows($result) = 1)
 		{
-			$row = mysqli_fetch_assoc($result)
+			$row = mysqli_fetch_assoc($result);
 			if($row["vote"] == 1)
 			{
 				if($stmt = $conn->prepare("DELETE FROM votes WHERE post_id=? AND bruger_id=?"))
@@ -68,7 +68,7 @@ if(isset($_SESSION['username']))
 	{
 		if (mysqli_num_rows($result) = 1)
 		{
-			$row = mysqli_fetch_assoc($result)
+			$row = mysqli_fetch_assoc($result);
 			if($row["vote"] == -1)
 			{
 				if($stmt = $conn->prepare("DELETE FROM votes WHERE post_id=? AND bruger_id=?"))
