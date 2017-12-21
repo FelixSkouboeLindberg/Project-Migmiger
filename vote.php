@@ -1,14 +1,20 @@
 <?php
 session_start();
 include("connect_mysql.php");
+
+
 if(isset($_SESSION['username']))
 {
+	$postid = $_POST["id"];
+	sql = "SELECT vote FROM votes WHERE post_id = 
+	
 	if(isset($_POST["1"]))
 	{	
-		$id = $_POST["id"];
+		
+		
 		if($stmt = $conn->prepare("SELECT votes FROM posts WHERE id=?"))
 		{
-			$stmt->bind_param("i", $id);
+			$stmt->bind_param("i", $postid);
 			$stmt->execute();
 			$stmt->bind_result($votes);
 			$stmt->fetch();
@@ -18,7 +24,7 @@ if(isset($_SESSION['username']))
 			
 			if($stmt = $conn->prepare("UPDATE posts SET votes=? WHERE id=?"))
 			{
-				$stmt->bind_param("ii", $votes, $id);
+				$stmt->bind_param("ii", $votes, $postid);
 				$stmt->execute();
 				$stmt->close();
 				
