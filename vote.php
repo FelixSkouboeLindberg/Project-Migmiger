@@ -43,9 +43,9 @@ if(isset($_SESSION['username']))
 			}
 			elseif($row["vote"] == -1)
 			{
-				if($stmt = $conn->prepare("UPDATE vote FROM votes WHERE post_id=? AND bruger_id=? VALUES (?)"))
+				if($stmt = $conn->prepare("UPDATE votes SET vote=? WHERE post_id=? AND bruger_id=?"))
 				{
-					$stmt->bind_param("iii", $postid, $brugerid, $vote1);
+					$stmt->bind_param("iii", $vote1, $postid, $brugerid);
 					$stmt->execute();
 					$stmt->close();
 					$votes = $votes + 2;
@@ -85,9 +85,9 @@ if(isset($_SESSION['username']))
 			}
 			elseif($row["vote"] == 1)
 			{
-				if($stmt = $conn->prepare("UPDATE vote FROM votes WHERE post_id=? AND bruger_id=? VALUES (?)"))
+				if($stmt = $conn->prepare("UPDATE votes SET vote=? WHERE post_id=? AND bruger_id=?"))
 				{
-					$stmt->bind_param("iii", $postid, $brugerid, $vote2);
+					$stmt->bind_param("iii", $vote2, $postid, $brugerid);
 					$stmt->execute();
 					$stmt->close();
 					$votes = $votes - 2;
