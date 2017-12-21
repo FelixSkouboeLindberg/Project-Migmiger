@@ -111,6 +111,14 @@ body {
 	align-content: space-between;
 }
 
+.coments {
+	height: 110.4px;
+}
+
+.VoteContainer {
+	display: inline-flex;
+}
+
 .post_img img{
 	width: 100%;
 	padding-bottom: 5;
