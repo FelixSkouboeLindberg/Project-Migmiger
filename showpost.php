@@ -98,7 +98,7 @@ EOT;
 							// output data of each row
 							while($row = $result->fetch_assoc()) {
 								$post .= 
-								"<div class='comments'>">
+								"<div class='comments'>"
 								"<div class='comUsername'>"
 								.$row["username"]. 
 								"</div>"
