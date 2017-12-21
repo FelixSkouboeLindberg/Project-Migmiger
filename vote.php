@@ -15,7 +15,7 @@ if(isset($_SESSION['username']))
 
 	if($stmt = $conn->prepare("SELECT votes FROM posts WHERE id=?"))
 	{
-		$stmt->bind_param("i", $id);
+		$stmt->bind_param("i", $postid);
 		$stmt->execute();
 		$stmt->bind_result($votes);
 		$stmt->fetch();
@@ -111,7 +111,7 @@ if(isset($_SESSION['username']))
 	echo "tying update posts";
 	if($stmt = $conn->prepare("UPDATE posts SET votes=? WHERE id=?"))
 	{
-		$stmt->bind_param("ii", $votes, $id);
+		$stmt->bind_param("ii", $votes, $postid);
 		$stmt->execute();
 		$stmt->close();
 		
