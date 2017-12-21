@@ -1,6 +1,11 @@
 <?php
 session_start();
 require('connect_mysql.php');
+
+if(isset($_POST["id"]))
+{
+	$_SESSION["postid"] = $_POST["id"];
+}
 ?>
 <html>
 	<head>
