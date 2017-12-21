@@ -12,18 +12,6 @@ require('connect_mysql.php');
 			<div class="logo">
 				<p>GemmeGag</p>
 			</div>
-			
-			<div class="loginspot">
-				<?php
-				if(isset($_SESSION['username']))
-				{
-					$username = $_SESSION['username'];
-					echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
-				} else {
-					echo "<a href='loginpage.php'>Login</a><br>Dont have an account? <a href='registerpage.php'>Signup</a>";
-				}
-				?>
-			</div>
 		</div>
 		
 		<div class="divider"></div>
