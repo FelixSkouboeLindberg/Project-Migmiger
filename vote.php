@@ -108,14 +108,13 @@ if(isset($_SESSION['username']))
 		}
 		
 	}
-	echo "tying update posts";
 	if($stmt = $conn->prepare("UPDATE posts SET votes=? WHERE id=?"))
 	{
 		$stmt->bind_param("ii", $votes, $postid);
 		$stmt->execute();
 		$stmt->close();
 		
-		echo mysqli_error($conn);
+		header("Location: index.php");
 	} else {
 		echo "Could not prepare sql statement 4";
 	}
