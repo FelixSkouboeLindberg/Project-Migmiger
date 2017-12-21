@@ -14,9 +14,7 @@
 				if(isset($_SESSION['username']))
 				{
 					$username = $_SESSION['username'];
-					echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
-				} else {
-					echo "<a href='loginpage.php'>Login</a><br>Dont have an account? <a href='registerpage.php'>Signup</a>";
+					echo "Welcome " .$username. "";
 				}
 				?>
 			</div>
@@ -28,6 +26,16 @@
 			<ul>
 				<li><a href="index.php">Frontpage</a></li>
 				<li><a class="active" href="createpostpage.php">Create post</a></li>
+				<?php
+				if(isset($_SESSION['username']))
+				{
+					$username = $_SESSION['username'];
+					echo "<li><a href='profile.php'>Profile</a></li>";
+					echo "<li><a href='logout.php'>Logout</a></li>";
+				} else {
+					echo "<li><a href='loginpage.php'>Login</a></li>";
+				}
+				?>
 			</ul>
 		</div>
 		

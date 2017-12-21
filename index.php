@@ -12,8 +12,18 @@ require('connect_mysql.php');
 			<div class="logo">
 				<p>GemmeGag</p>
 			</div>
+			
+			<div class="loginspot">
+				<?php
+				if(isset($_SESSION['username']))
+				{
+					$username = $_SESSION['username'];
+					echo "Welcome " .$username. "";
+				}
+				?>
+			</div>
 		</div>
-		
+			
 		<div class="divider"></div>
 		
 		<div class="navbar">
@@ -24,9 +34,10 @@ require('connect_mysql.php');
 				if(isset($_SESSION['username']))
 				{
 					$username = $_SESSION['username'];
-					echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
+					echo "<li><a href='profile.php'>Profile</a></li>";
+					echo "<li><a href='logout.php'>Logout</a></li>";
 				} else {
-					echo "<a href='loginpage.php'>Login</a><br>Dont have an account? <a href='registerpage.php'>Signup</a>";
+					echo "<li><a href='loginpage.php'>Login</a></li>";
 				}
 				?>
 			</ul>
