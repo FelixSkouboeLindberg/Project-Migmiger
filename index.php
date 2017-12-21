@@ -15,7 +15,7 @@ require('connect_mysql.php');
 			
 			<div class="loginspot">
 				<?php
-				if(isset($_SESSION['id']))
+				if(isset($_SESSION['username']))
 				{
 					$username = $_SESSION['username'];
 					echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
