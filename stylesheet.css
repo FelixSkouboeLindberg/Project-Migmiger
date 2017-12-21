@@ -111,11 +111,11 @@ body {
 	align-content: space-between;
 }
 
-.coments {
+.comments {
 	height: 110.4px;
 }
 
-.VoteContainer {
+.VoteContainer form {
 	display: inline-flex;
 }
 
