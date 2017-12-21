@@ -72,9 +72,9 @@ require('connect_mysql.php');
 				<form action="vote.php" method="POST">
 					<div class="VoteContainer">
 						<input type="hidden" name="id" value="{$id}">
-						<div class="votes_upDown"><input type="submit" name="1" value=""></div>
+						<div class="votes_up"><input type="submit" name="1" value=""></div>
 						<div class="post_votes">{$votes}</div>
-						<div class="votes_upDown"><input type="submit" name="0" value=""></div>
+						<div class="votes_down"><input type="submit" name="0" value=""></div>
 					</div>
 				</form>
 				<div class="comments_container">
