@@ -32,6 +32,15 @@ require('connect_mysql.php');
 			<ul>
 				<li><a class="active" href="index.php">Frontpage</a></li>
 				<li><a href="createpostpage.php">Create post</a></li>
+				<?php
+				if(isset($_SESSION['username']))
+				{
+					$username = $_SESSION['username'];
+					echo "Welcome " .$username. "<br> <a href='logout.php'>Logout?</a>";
+				} else {
+					echo "<a href='loginpage.php'>Login</a><br>Dont have an account? <a href='registerpage.php'>Signup</a>";
+				}
+				?>
 			</ul>
 		</div>	
 			
@@ -58,9 +67,9 @@ require('connect_mysql.php');
 					<form action="vote.php" method="POST">
 						<div class="VoteContainer">
 							<input type="hidden" name="id" value="{$obj->id}">
-							<div class="votes_upDown"><input type="submit" name="1" value=""></div>
+							<div class="votes_up"><input type="submit" name="1" value=""></div>
 							<div class="post_votes">{$obj->votes}</div>
-							<div class="votes_upDown"><input type="submit" name="0" value=""></div>
+							<div class="votes_down"><input type="submit" name="0" value=""></div>
 						</div>
 					</form>
 				</div>
