@@ -63,7 +63,7 @@
 					} else {
 						echo "Error: " . $sql . "<br>" . $conn->error;
 					}
-					//header("Location: Velkommen.php");
+					header("Location: index.php");
 				}
 				else{
 					echo "Could not prepare sql statement";

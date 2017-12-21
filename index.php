@@ -31,6 +31,7 @@ require('connect_mysql.php');
 		<div class="navbar">
 			<ul>
 				<li><a class="active" href="index.php">Frontpage</a></li>
+				<li><a href="createpostpage.php">Create post</a></li>
 			</ul>
 		</div>	
 			
