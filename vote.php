@@ -115,7 +115,7 @@ if(isset($_SESSION['username']))
 		$stmt->execute();
 		$stmt->close();
 		
-		echo mysql_error();
+		echo mysqli_error($conn);
 	} else {
 		echo "Could not prepare sql statement 4";
 	}
