@@ -70,13 +70,52 @@ require('connect_mysql.php');
 					<div class="comment_button">Comments</div>
 				</div>
 				<form action="vote.php" method="POST">
-						<div class="VoteContainer">
-							<input type="hidden" name="id" value="{$id}">
-							<div class="votes_upDown"><input type="submit" name="1" value=""></div>
-							<div class="post_votes">{$votes}</div>
-							<div class="votes_upDown"><input type="submit" name="0" value=""></div>
-						</div>
-					</form>
+					<div class="VoteContainer">
+						<input type="hidden" name="id" value="{$id}">
+						<div class="votes_upDown"><input type="submit" name="1" value=""></div>
+						<div class="post_votes">{$votes}</div>
+						<div class="votes_upDown"><input type="submit" name="0" value=""></div>
+					</div>
+				</form>
+				<div class="comments_container">
+EOT;
+						if(isset($_SESSION['id'])) {
+							$post .= <<<EOT
+							<div class="createCom">
+								<form action='createcomment.php' method='POST'>
+									<input type='hidden' value='{$id}' name='postID'>
+									<input type='text' name='msgtxt' required>
+									<input type='submit' value='Post'>
+								</form>
+							</div>
+EOT;
+						}
+	
+						$sql = "SELECT brugere.username, brugere.profilepic, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id WHERE post_id={$id} ORDER BY comments.id DESC";
+						$result = $conn->query($sql);
+						
+						if ($result->num_rows > 0) {
+							// output data of each row
+							while($row = $result->fetch_assoc()) {
+								$post .= 
+								"<div class='comments'>">
+								"<div class='comUsername'>"
+								.$row["username"]. 
+								"</div>"
+								"<div class='comPic'>"
+								.$row["profilepic"].
+								"</div>"
+								"<div class='comText'>"
+								.$row["comment"].
+								"</div>"
+								"</div>";
+							}
+						} else {
+							$post .= "<div class='comments'> No Comments </div>";
+						}
+						
+				$post .= <<<EOT
+				</div>
 				</li>
 EOT;
 				$post .= '</ul>';
@@ -84,32 +123,7 @@ EOT;
 			}
 			?>
 		</div>
-		<div class="comments">
-			<?php 
-                if(isset($_SESSION['id'])) {
-                    echo "<form action='createcomment.php' method='POST'>
-						<input type='hidden' value='{$id}' name='postID'>
-                        <input type='text' name='msgtxt' required>
-                        <input type='submit' value='Post'>
-                    </form>";
-                }
-
-
-                $sql = "SELECT brugere.username, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id WHERE post_id={$id} ORDER BY comments.id DESC";
-                $result = $conn->query($sql);
-                
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo  $row["username"]. " - " . $row["comment"]. " - ". $row["created"]. "<br>";
-                    }
-                } else {
-                    echo "0 results";
-                }
-
-
-            ?>
-		</div>
+		
 		
 	</body>
 </html>
