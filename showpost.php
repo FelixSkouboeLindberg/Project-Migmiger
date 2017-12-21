@@ -48,7 +48,7 @@ require('connect_mysql.php');
 			$error = false;
 			if($stmt = $conn->prepare("SELECT id, title, billede, votes FROM posts WHERE id=? LIMIT 1"))
 			{
-				$stmt->bind_param("s", $_POST["id"]);
+				$stmt->bind_param("i", $_SESSION["postid"]);
 				$stmt->execute();
 				$stmt->bind_result($_SESSION["postid"], $title, $img, $votes);
 				$stmt->fetch();
