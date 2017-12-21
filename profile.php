@@ -67,6 +67,10 @@ require('connect_mysql.php');
 					<li class="profileContainer">
 					<div class='username'><h1>{$username}</h1></div>
 					<div class="profilepic"><img src="ProfilePics/{$billede}"></div>
+					<form action='updatepic.php' method='POST' enctype="multipart/form-data">
+						<input type="file" name="billede" id="billede">
+						<input type='submit' value='Update'>
+					</form>
 				</div>
 				</li>
 EOT;
