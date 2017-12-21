@@ -97,7 +97,7 @@ EOT;
 						if ($result->num_rows > 0) {
 							// output data of each row
 							while($row = $result->fetch_assoc()) {
-								$post .= "<div class='comments'> <div class='comUsername'>".$row["username"]."</div><img class='comPic' src='ProfilePics/".$row["profilepic"]."'></div><div class='comText'>".$row["comment"]."</div></div>";
+								$post .= "<div class='comments'> <div class='comUsername'>".$row["username"]."</div><img class='comPic' src='ProfilePics/".$row["profilepic"]."'><div class='comText'>".$row["comment"]."</div></div>";
 							}
 						} else {
 							$post .= "<div class='comments'> No Comments </div>";
