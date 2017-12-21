@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	unset($_SESSION["postid"]);
     include "connect_mysql.php";
     $userN = $_POST["username"];
     $pass = $_POST["password"];

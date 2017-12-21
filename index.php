@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('connect_mysql.php');
+unset($_SESSION["postid"]);
 ?>
 <html>
 	<head>

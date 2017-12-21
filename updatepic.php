@@ -1,5 +1,6 @@
 <?php 
 session_start();
+unset($_SESSION["postid"]);
 include 'connect_mysql.php';
 if(isset($_SESSION["username"] ))
 {

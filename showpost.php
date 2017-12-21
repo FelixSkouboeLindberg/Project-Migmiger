@@ -50,7 +50,7 @@ require('connect_mysql.php');
 			{
 				$stmt->bind_param("s", $_POST["id"]);
 				$stmt->execute();
-				$stmt->bind_result($id, $title, $img, $votes);
+				$stmt->bind_result($_SESSION["postid"], $title, $img, $votes);
 				$stmt->fetch();
 				$stmt->close();
 				
@@ -72,7 +72,7 @@ require('connect_mysql.php');
 				
 					<div class="VoteContainer">
 						<form action="vote.php" method="POST">
-						<input type="hidden" name="id" value="{$id}">
+						<input type="hidden" name="id" value="{$_SESSION["postid"]}">
 						<div class="votes_up"><input type="submit" name="1" value=""></div>
 						<div class="post_votes">{$votes}</div>
 						<div class="votes_down"><input type="submit" name="0" value=""></div>
@@ -84,15 +84,14 @@ EOT;
 							$post .= <<<EOT
 							<div class="createCom">
 								<form action='createcomment.php' method='POST'>
-									<input type='hidden' value='{$id}' name='postID'>
 									<input type='text' name='msgtxt' required>
-									<input type='submit' value='Post'>
+									<input type='submit' value='Comment'>
 								</form>
 							</div>
 EOT;
 						}
 	
-						$sql = "SELECT brugere.username, brugere.profilepic, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id WHERE post_id={$id} ORDER BY comments.id DESC";
+						$sql = "SELECT brugere.username, brugere.profilepic, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id WHERE post_id={$_SESSION["postid"]} ORDER BY comments.id DESC";
 						$result = $conn->query($sql);
 						
 						if ($result->num_rows > 0) {

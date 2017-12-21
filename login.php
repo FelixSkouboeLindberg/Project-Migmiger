@@ -1,5 +1,6 @@
 <?php  //Start the Session
 session_start();
+unset($_SESSION["postid"]);
 require('connect_mysql.php');
 
 if (isset($_POST['username']) and isset($_POST['password'])){

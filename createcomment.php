@@ -2,7 +2,7 @@
     session_start();
     include 'connect_mysql.php';
     $msg = $_POST['msgtxt'];
-	$postid = $_POST['postID'];
+	$postid = $_SESSION["postid"];
 	
 
     $ID = $_SESSION['id']; 

@@ -1,3 +1,7 @@
+<?php
+session_start();
+unset($_SESSION["postid"]);
+?>
 <html>
 	<head>
 		<title>GemmeGag</title>
