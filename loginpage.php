@@ -31,20 +31,22 @@
 			</ul>
 		</div>
 		
-		<div class="loginform">
-			<form action="login.php" method="POST">
-				Username: 
-				<br>
-				<input type="text" name="username" required>
-				<input type="password" name="password" required>
-				<input type="submit" value="Login">
-				<?php 
-				if(isset($_SESSION["trylogin"])) 
-				{
-					echo "wrong login";
-				}
-				?>
-			</form>
+		<div class="content">
+			<div class="loginform">
+				<form action="login.php" method="POST">
+					Username: 
+					<br>
+					<input type="text" name="username" required>
+					<input type="password" name="password" required>
+					<input type="submit" value="Login">
+					<?php 
+					if(isset($_SESSION["trylogin"])) 
+					{
+						echo "wrong login";
+					}
+					?>
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
