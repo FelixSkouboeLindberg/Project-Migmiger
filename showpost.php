@@ -79,6 +79,7 @@ EOT;
 			<?php 
                 if(isset($_SESSION['id'])) {
                     echo "<form action='createcomment.php' method='POST'>
+						<input type='hidden' value='{$id}' name='postID'>
                         <input type='text' name='msgtxt' required>
                         <input type='submit' value='Post'>
                     </form>";
