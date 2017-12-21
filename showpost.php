@@ -95,7 +95,7 @@ EOT;
                 }
 
 
-                $sql = "SELECT brugere.username, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id ORDER BY comments.id DESC";
+                $sql = "SELECT brugere.username, comments.comment, comments.created FROM comments INNER JOIN brugere ON brugere.id=comments.bruger_id WHERE post_id={$id} ORDER BY comments.id DESC";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {

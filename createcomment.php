@@ -2,7 +2,8 @@
     session_start();
     include 'connect_mysql.php';
     $msg = $_POST['msgtxt'];
-
+	$postid = $_POST['postID'];
+	
 
     $ID = $_SESSION['id']; 
     
@@ -11,11 +12,10 @@
     $result=mysqli_query($conn,$sql);
     
     if($result) {
-        $sql = "INSERT INTO comments (userID, msg) VALUES ('$ID', '$msg')";
-
+        $sql = "INSERT INTO comments (comment, post_id, bruger_id) VALUES ('$msg', '$postid', '$ID')";
         if ($conn->query($sql) === TRUE) {
             echo "Post was successfully created";
-            header( "Location: index.php" );
+            header( "Location: showpost.php" );
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
