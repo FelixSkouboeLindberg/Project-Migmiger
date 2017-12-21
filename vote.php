@@ -24,7 +24,7 @@ if(isset($_SESSION['username']))
 	
 	if(isset($_POST["1"]))
 	{
-		if (mysqli_num_rows($result) = 1)
+		if (mysqli_num_rows($result) == 1)
 		{
 			$row = mysqli_fetch_assoc($result);
 			if($row["vote"] == 1)
@@ -66,7 +66,7 @@ if(isset($_SESSION['username']))
 	}
 	elseif(isset($_POST["0"]))
 	{
-		if (mysqli_num_rows($result) = 1)
+		if (mysqli_num_rows($result) == 1)
 		{
 			$row = mysqli_fetch_assoc($result);
 			if($row["vote"] == -1)
