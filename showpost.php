@@ -37,11 +37,11 @@ require('connect_mysql.php');
 		<div class="content">
 			<?php
 			$error = false;
-			if($stmt = $conn->prepare("SELECT title, billede, votes FROM posts WHERE id=? LIMIT 1"))
+			if($stmt = $conn->prepare("SELECT id, title, billede, votes FROM posts WHERE id=? LIMIT 1"))
 			{
 				$stmt->bind_param("s", $_POST["id"]);
 				$stmt->execute();
-				$stmt->bind_result($title, $img, $votes);
+				$stmt->bind_result($id, $title, $img, $votes);
 				$stmt->fetch();
 				$stmt->close();
 				
@@ -55,23 +55,19 @@ require('connect_mysql.php');
 				$post = '<ul class="posts">';
 				$post .= <<<EOT
 				<li class="post">
-					<form action="showpost.php" method="POST">
-					<input type="hidden" name="id" value="{$obj->id}">
-					<div class='post_title'><h2>{$obj->title}</h2></div>
-					<div class="post_img"><img src="uploads/{$obj->billede}"></div>
-					
-					<div class="buttom_container">
-						<div class="comment_button"><input type="text" value="Comments"></div>
-						</form>
-						<form action="vote.php" method="POST">
-							<div class="VoteContainer">
-								<input type="hidden" name="id" value="{$obj->id}">
-								<div class="votes_upDown"><input type="submit" name="1" value=""></div>
-								<div class="post_votes">{$obj->votes}</div>
-								<div class="votes_upDown"><input type="submit" name="0" value=""></div>
-							</div>
-						</form>
-					</div>
+				<div class='post_title'><h1>{$title}</h1></div>
+				<div class="post_img"><img src="uploads/{$img}"></div>
+				<div class="buttom_container">
+					<div class="comment_button">Comments</div>
+				</div>
+				<form action="vote.php" method="POST">
+						<div class="VoteContainer">
+							<input type="hidden" name="id" value="{$id}">
+							<div class="votes_upDown"><input type="submit" name="1" value=""></div>
+							<div class="post_votes">{$votes}</div>
+							<div class="votes_upDown"><input type="submit" name="0" value=""></div>
+						</div>
+					</form>
 				</li>
 EOT;
 				$post .= '</ul>';
